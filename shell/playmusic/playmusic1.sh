@@ -1,7 +1,7 @@
 #!/bin/bash
 rebuild=
 musiclist=music_list
-
+music_adrr=/home/ubuntu/音乐/CloudMusic
 show()
 {
     echo "Usage: playmusic [-n -f playlist]"
@@ -28,10 +28,10 @@ then
         rm "$musiclist"
     fi
     {
-        find ~/音乐/CloudMusic/ -name "*.mp3"
-        find ~/音乐/CloudMusic/ -name "*.wma"
-        find ~/音乐/CloudMusic/ -name "*.flac"
-        find ~/音乐/CloudMusic/ -name "*.ape"
+        find $music_adrr -name "*.mp3"
+        find $music_adrr -name "*.wma"
+        find $music_adrr -name "*.flac"
+        find $music_adrr -name "*.ape"
     }>"$musiclist"
 elif [ ! -r "$musiclist" ]
 then
