@@ -1,2 +1,1 @@
-# ArtificialIntelligence
-Learning artificial intelligence
+# Project1
