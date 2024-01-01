@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tail -f /var/log/logkeys.logdds
+tail -f /var/log/logkeys.log

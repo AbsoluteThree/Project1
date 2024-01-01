@@ -1,6 +1,6 @@
 [TOC]
 
-# 软件安装
+# 软件安装和使用
 
 ## 编程
 
@@ -179,6 +179,11 @@ python
 “python3” 命令来自 Debian 软件包 python3
 “python” 命令来自 Debian 软件包 python-is-python3
 sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+
+```
+" ModuleNotFoundError: No module named 'tkinter' "的解决方法
+sudo apt-get install tcl-dev tk-dev python3-tk
 ```
 
 
@@ -394,6 +399,43 @@ cte→	console.timeEnd(object);
 ![](ubuntu.images/image-20231229081241582.png)
 
 解决办法就是前往[官网](https://www.princexml.com/download/)下载安装即可。
+
+### matlab
+
+```
+//变量名
+1. 区分大小写
+2. 长度不超过63位
+3. 不能以数字开头，以数字下划线字母组成
+//清除
+clc
+clear all
+//注释
+%
+%%注释块%%
+//字符串
+‘字符’
+//ascll码
+abs('a')
+//字符
+char(97)
+//长度,空格也算长度
+length(str)
+//矩阵
+A=[1,2,3;2,3,4;3,4,5]
+//转置
+B=A'
+//竖拉长
+C=A(:)
+//矩阵的逆
+D=inv(A)
+//3维10行5列0矩阵
+E=zeros(10,5,3)
+//rand(m,n)生成m行n列的均匀分布的伪随机数(分布在0~1)
+//rand(m,n,'double')生成指定
+```
+
+
 
 ### shell
 
@@ -916,6 +958,83 @@ sudo dpkg -i typora_1.5.10-1_amd64.deb
 ```
 sudo dpkg -i zhixilinux.deb
 ```
+## qtcreator
+```
+wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
+chmod +x qt-opensource-linux-x64-5.12.9.run
+sudo ./qt-opensource-linux-x64-5.12.9.run
+//登录不了报错，设置改为无代理
+Warning: Network error: [ QNetworkReply::NetworkError(AuthenticationRequiredError) ] "Authentication failed."
+//建立软连接，终端输入qtcreator即可启动
+sudo ln -s /opt/Qt5.12.9/Tools/QtCreator/bin/qtcreator.sh /usr/bin/qtcreator
+```
+
+
+
+## matlab
+
+链接: https://pan.baidu.com/s/1DWZYyLOuqrEI8venk6d1MQ?pwd=1234 提取码: 1234
+
+1. 将文件下载到/home/ubuntu/下载/，然后Ctrl+Alt+T打开终端
+
+```
+//创建DVD文件夹
+sudo mkdir /home/ubuntu/下载/Linux_matlab/DVD
+//挂载dvd1
+sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd1.iso /home/ubuntu/下载/Linux_matlab/DVD/
+//安装dvd1
+sudo /home/ubuntu/下载/Linux_matlab/DVD/install
+//选择文件安装秘钥→下一步
+//安装密钥在文件夹Crack/readme.txt中
+//弹出dvd1
+sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
+//挂载dvd2
+sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd2.iso /home/ubuntu/下载/Linux_matlab/DVD/
+//点击上图中的”OK“继续安装 (一切默认无需修改)
+//安装完后弹出dvd2
+sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
+
+//激活
+sudo /usr/local/MATLAB/R2018a/bin/matlab
+//不使用Internet的情况下手动激活→选择Crack文件中的 license_standalone.lic 文件
+然后在终端输入:
+sudo cp /home/ubuntu/下载/Linux_matlab/Crack/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl
+sudo cp /home/ubuntu/下载/Linux_matlab/Crack/license_standalone.lic /usr/local/MATLAB/R2018a/licenses/
+//创建快捷键
+  sudo gedit /usr/share/applications/Matlab2018a.desktop
+  //输入
+    [Desktop Entry] 
+    Encoding=UTF-8
+    Name=Matlab 2018a
+    Comment=MATLAB
+    Exec=/usr/local/MATLAB/R2018a/bin/matlab
+    Icon=/usr/local/MATLAB/R2018a/toolbox/shared/dastudio/resources/MatlabIcon.png
+    Terminal=true
+    Type=Application
+    Categories=Application
+    
+//设置环境变量
+sudo vim ~/.bashrc
+# added by matlab2018a
+export PATH=/usr/local/MATLAB/R2018a/bin:$PATH
+source ~/.bashrc
+//之后终端直接输入matlab即可进入matlab工作环境
+```
+
+## 字体
+```
+//在字体目录刷新字体
+sudo fc-cache -f -v
+```
+
+```
+//安装字体管理程序
+sudo apt-get install font-manager
+//卸载字体管理器
+sudo apt-get remove font-manager
+```
+
+
 
 ## 压缩
 
@@ -1006,7 +1125,118 @@ firefox *.html
 //打开网页视频自动静音
 火狐设置→隐私和安全→自动播放设置→所有网站的默认值改为允许音频和视频→保存更改
 ```
-
+## 阅读器
+### okular
+```
+sudo apt install okular
+//在vscode中配置反向搜索
+code --goto %f:%l
+//使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
+//在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
+```
+```
+//settings.json
+{
+    // Latex configuration
+        "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ],
+        },
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xe->bib->xe->xe",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdf->bib->pdf->pdf",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+        // 编译工具和命令
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "%DOCFILE%"
+        ]
+        },
+        {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+        },
+        {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%DOCFILE%"
+        ]
+        }
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk"
+    ],
+    "latex-workshop.latex.outDir":"%DIR%",
+    "latex-workshop.view.pdf.viewer":"external",
+    "latex-workshop.view.pdf.external.viewer.command": "okular",
+    "latex-workshop.view.pdf.external.viewer.args": 
+    [
+        "--unique",
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "okular",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "--unique",
+        "%PDF%#src:%LINE%%TEX%"
+    ],
+}
+```
 
 
 ## 播放器
@@ -1092,6 +1322,13 @@ c:暂停和播放
 ```
 //安装
 sudo apt install mplayer
+```
+
+## 图片
+
+```
+//命令行打开图片
+eog /path/to/image.jpg
 ```
 
 
