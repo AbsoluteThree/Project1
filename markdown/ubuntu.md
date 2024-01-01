@@ -432,7 +432,16 @@ D=inv(A)
 //3维10行5列0矩阵
 E=zeros(10,5,3)
 //rand(m,n)生成m行n列的均匀分布的伪随机数(分布在0~1)
-//rand(m,n,'double')生成指定
+//rand(m,n,'double')生成指定精度的均匀分布的伪随机数，参数还可以是‘single’
+//rand(RandStream,m,n)利用指定的RandStream生成伪随机数
+//randn生成标准正态分布的伪随机数（均值为0，方差为1）
+//randi生成均匀分布的伪随机数
+randi(iMax)在（0，iMax）生成均匀分布的伪随机数
+randi(iMax,m,n)在（0，iMax）生成mXn型随机矩阵
+randi([iMin,iMax],m,n)在（iMin,iMax）生成mXn型随机矩阵
+//元胞数组
+cell(1,6)
+A[2] = eye(3)
 ```
 
 
