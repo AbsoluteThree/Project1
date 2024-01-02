@@ -1,40 +1,47 @@
-[TOC]
-
 # 软件安装和使用
 
 ## 编程
 
+```markdown
+1. google-chrome
+2. firefox
+3. typora
+4. code
+5. matlab
+6. thunderbird
+7. nautilus
+8. wps
+```
+
 ### vscode
 
-```
+```shell
 sudo snap install --classic code
 code
-//无法输入输入中文，卸载后重新安装最新版本
-//卸载
+#无法输入输入中文，卸载后重新安装最新版本
+#卸载
 sudo snap remove --purge code
 ```
 
 链接: <https://pan.baidu.com/s/1d7f9VUvyFRKie2a8idzpUw?pwd=1234> 提取码: 1234
 
-```
-//重新安装最新版本
+```shell
+#重新安装最新版本
 sudo dpkg -i code.deb
 code
 ```
 
 #### vscode设置
 
-```
-//资源管理器文件夹出现折叠
+**资源管理器文件夹出现折叠**
 打开设置搜索：Explorer:Compact Folders
 取消勾选此项即可
-```
 
 ![image-20231229130455172](ubuntu.images/image-20231229130455172.png)
 
 #### vscode插件推荐
 
-```
+```text
 C/C++
 C++ Intellisense
 Todo Tree
@@ -47,7 +54,7 @@ python
 
 ```
 
-```
+```json
 // 头部注释
 "fileheader.customMade": {
     // Author字段是文件的创建者 可以在specialOptions中更改特殊属性
@@ -175,28 +182,28 @@ python
 
 #### python
 
-```
+```shell
 “python3” 命令来自 Debian 软件包 python3
 “python” 命令来自 Debian 软件包 python-is-python3
 sudo ln -s /usr/bin/python3 /usr/bin/python
 ```
 
-```
+```shell
 " ModuleNotFoundError: No module named 'tkinter' "的解决方法
 sudo apt-get install tcl-dev tk-dev python3-tk
 ```
 
 #### java
 
-```
-// 安装
+```shell
+#安装
 sudo apt update
 sudo apt install openjdk-8-jdk
 
-// 选择默认版本
+#选择默认版本
 sudo update-alternatives --config java
 
-//配置环境变量
+#配置环境变量
 sudo gedit /etc/profile 在文本末尾追加一下内容
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -210,7 +217,7 @@ java -version 查看当前版本
 
 #### vim
 
-```
+```json
 //在vscode中 配置vim
 //配置快捷键
 
@@ -243,9 +250,9 @@ java -version 查看当前版本
 
 [点击](https://github.com/settings/keys)进入界面
 
-![](ubuntu.images/image-20231229093745618.png)
+![添加SSHkey](ubuntu.images/image-20231229093745618.png)
 
-```
+```shell
 终端运行 ssh-keygen -t rsa -b 4096 -C  "邮箱"，回车3次
 
 运行 cat ~/.ssh/id_rsa.pub 得到Key
@@ -257,11 +264,11 @@ java -version 查看当前版本
 
 ##### vscode 配置 git
 
-```
+```shell
 ctrl + shift + p输入git clone 显示
 fatal: 无法访问 'https://github.com/.../....git/'：GnuTLS recv error (-110): The TLS connection was non-properly terminated.
 
-在终端输入
+在终端输入shell
 git config --global --unset http.proxy 
 git config --global --unset https.proxy
 重新上一步即可
@@ -275,7 +282,7 @@ git config --global http.postBuffer 1048576000
 
 ##### 2天学习html计划
 
-```
+```text
 //第一天
 Topic 1: HTML简介
     了解HTML的定义和作用
@@ -311,7 +318,7 @@ Topic 4: HTML元素属性
 
 ##### 用vscode提高开发前端效率的9个插件
 
-```
+```text
 // JavaScript (ES6) Code Snippets
 imp→ import moduleName from 'module';
 imn→ import 'module';
@@ -325,7 +332,7 @@ env→ export const exportVariable = localVariable;
 enf→ export const functionName = (params) => {};
 edf→ export default function test(params) {};
 ecl→ export default class className {};
-ece→ export default class className extends             baseclassName {};
+ece→ export default class className extends baseclassName {};
 fof→ for (const item of object) {}
 fin→ for (const item in object) {}
 anfn→ (params) => {}
@@ -380,80 +387,218 @@ cte→ console.timeEnd(object);
 
 #### markdown
 
+##### typora
+
+// 用户账号随便输入即可激活
+
+链接: <https://pan.baidu.com/s/17BuIJh4mi0Ugx4NLfrg4UA?pwd=1234> 提取码: 1234
+
+```shell
+#在下载文件目录下打开终端输入
+sudo dpkg -i typora_1.5.10-1_amd64.deb
+```
+
+//Markdownlint规范
+
+```text
+代码 描述 解释
+MD001 Heading levels should only increment by one level at a time 标题级数只能每次扩大一个，也就是说不能隔级创建标题，必须h1-h2-h3…这样
+MD002 First heading should be a top level heading 文档的第一个标题必须是最高级的标题
+MD003 Heading style 整篇文档的标题格式要统一
+MD004 Unordered list style 整篇文档的无序列表的格式要一致
+MD005 Inconsistent indentation for list items at the same level 同一个等级的列表的缩进要一致
+MD006 Consider starting bulleted lists at the beginning of the line 一级标题不能够缩进
+MD007 Unordered list indentation 无序列表嵌套的时候默认采取两个空格的缩进方式
+MD009 Trailing spaces 行尾最多可以添加两个空格，超出之后会有警告，最好每次都是两个空格因为两个空格刚好可以用来换行
+MD010 Hard tabs 不能使用tab来进行缩进，要使用空格
+MD011 Reversed link syntax 内联形式的链接和创建方式是否错误，中括号和圆括号是否使用正确
+MD012 Multiple consecutive blank lines 文档中不能有连续的空行（文档末可以有一个空行），在代码块中这个规则不会生效
+MD013 Line length 默认行的最大长度是80，对表格代码块标题都起效果
+MD014 Dollar signs used before commands without showing output 在代码块中，终端命令前面不需要有美元符号，如果如果代码块中既有终端命令，也有命令的输出，则终端命令前可以有美元符号($)
+MD018 No space after hash on atx style heading 标题格式如果是"atx"的话，#号和文字之间需要一个空格隔开
+MD019 Multiple spaces after hash on atx style heading 标题格式如果是"atx"的话，#号和文字之间只需要一个空格隔开，不需要多个
+MD020 No space inside hashes on closed atx style heading 在closed_atx格式的标题中，文字和前后的#号之间都需要一个空格隔开
+MD021 Multiple spaces inside hashes on closed atx style heading 在closed_atx格式的标题中，文字和前后的#号之间只需要一个空格隔开，不能有多余的
+MD022 Headings should be surrounded by blank lines 标题的上下行必须都是空格
+MD023 Headings must start at the beginning of the line 标题行不能缩进
+MD024 Multiple headings with the same content 在文档中不能有重复性的标题
+MD025 Multiple top level headings in the same document 同一个文档中，只能有一个最高级的标题，默认也只能有一个一级标题
+MD026 Trailing punctuation in heading 标题的末尾不能有". , ; : ! ? "这些符号
+MD027 Multiple spaces after blockquote symbol 在创建引用块的时候，右尖号与文字之间必须有且只有一个空格
+MD028 Blank line inside blockquote 两个引用区块间不能仅用一个空行隔开或者同一引用区块中不能有空行，如果一行中没有内容，则这一行要用>开头
+MD029 Ordered list item prefix 有序列表的前缀序号格式必须只用1或者从1开始的加1递增数字
+MD030 Spaces after list markers 列表（有序、无序）的前缀符号和文字之间用1个空格隔开，在列表嵌套或者同一列表项中有多个段落时，无序列表缩进两个空格，有序列表缩进3个空格
+MD031 Fenced code blocks should be surrounded by blank lines 单独的代码块前后需要用空行隔开（除非是在文档开头或末尾），否则有些解释器不会解释为代码块
+MD032 Lists should be surrounded by blank lines 列表（有序、无序）前后需要用空行隔开，否则有些解释器不会解释为列表，列表的缩进必须一致，否则会警告
+MD033 Inline HTML 文档中不允许使用html语句
+MD034 Bare URL used 单纯的链接地址需要用尖括号 (<>) 包裹，否则有些解释器不会解释为链接
+MD035 Horizontal rule style 创建水平线时整篇文档要统一，要和文档中第一次创建水平线使用的符号一致
+MD036 Emphasis used instead of a heading 不能用强调来代替标题 ****
+MD037 Spaces inside emphasis markers 强调的符号和文字之间不能有空格
+MD038 Spaces inside code span elements 当用单反引号创建代码段的时候，单反引号和它们之间的代码不能有空格，如果要把单反引号嵌入到代码段的首尾，创建代码段的单反引号和嵌入的单反引号间要有一个空格隔开
+MD039 Spaces inside link text 链接名和包围它的中括号之间不能有空格，但链接名中间可以有空格
+MD040 Fenced code blocks should have a language specified 单独的代码块（此处是指上下用三个反引号包围的代码块）应该指定代码块的编程语言，这一点有助于解释器对代码进行代码高亮
+MD041 First line in file should be a top level heading 文档的第一个非空行应该是文档最高级的标题，默认是1级标题
+MD042 No empty links 链接的地址不能为空
+MD043 Required heading structure 要求标题遵循一定的结构，默认是没有规定的结构
+MD044 Proper names should have the correct capitalization 指定一些名称，会检查它是否有正确的大写
+MD045 Images should have alternate text (alt text) 图片链接必须包含描述文本
+MD046 Code block style 整篇文档采用一致的代码格式
+MD047 Files should end with a single newline character 文档末尾需要一个空行结尾
+```
+
 ##### 用vscode 写markdown文件推荐安装的插件
 
-![](ubuntu.images/image-20231229081352270.png)
+vscode插件paste image提示安装xclip
+
+```shell
+sudo apt-get install xclip
+Ctrl + Shift +p
+# 添加设置，Ctrl + v 图片保存同级images文件夹
+    "markdown.copyFiles.destination": {
+        "**/*": "images/"
+    }
+```
+
+![img](ubuntu.images/image-20231229081352270.png)
 
 ##### 使用Markdown Preview Enhanced导出PDF时的princexml提示
 
-![](ubuntu.images/image-20231229081317695.png)
+![img](ubuntu.images/image-20231229081317695.png)
 
 会弹出
 
-![](ubuntu.images/image-20231229081241582.png)
+![img](ubuntu.images/image-20231229081241582.png)
 
 解决办法就是前往[官网](https://www.princexml.com/download/)下载安装即可。
 
 ### matlab
 
+#### matlab安装
+
+链接: <https://pan.baidu.com/s/1DWZYyLOuqrEI8venk6d1MQ?pwd=1234> 提取码: 1234
+
+1. 将文件下载到/home/ubuntu/下载/，然后Ctrl+Alt+T打开终端
+
+```shell
+# 创建DVD文件夹
+sudo mkdir /home/ubuntu/下载/Linux_matlab/DVD
+# 挂载dvd1
+sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd1.iso /home/ubuntu/下载/Linux_matlab/DVD/
+# 安装dvd1
+sudo /home/ubuntu/下载/Linux_matlab/DVD/install
+# 选择文件安装秘钥→下一步
+# 安装密钥在文件夹Crack/readme.txt中
+# 弹出dvd1
+sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
+# 挂载dvd2
+sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd2.iso /home/ubuntu/下载/Linux_matlab/DVD/
+# 点击上图中的”OK“继续安装 (一切默认无需修改)
+# 安装完后弹出dvd2
+sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
+
+# 激活
+sudo /usr/local/MATLAB/R2018a/bin/matlab
+# 不使用Internet的情况下手动激活→选择Crack文件中的 license_standalone.lic 文件
+然后在终端输入:
+sudo cp /home/ubuntu/下载/Linux_matlab/Crack/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl
+sudo cp /home/ubuntu/下载/Linux_matlab/Crack/license_standalone.lic /usr/local/MATLAB/R2018a/licenses/
+# 创建快捷键
+  sudo gedit /usr/share/applications/Matlab2018a.desktop
+  #输入
+    [Desktop Entry] 
+    Encoding=UTF-8
+    Name=Matlab 2018a
+    Comment=MATLAB
+    Exec=/usr/local/MATLAB/R2018a/bin/matlab
+    Icon=/usr/local/MATLAB/R2018a/toolbox/shared/dastudio/resources/MatlabIcon.png
+    Terminal=true
+    Type=Application
+    Categories=Application
+    
+# 设置环境变量
+sudo vim ~/.bashrc
+# added by matlab2018a
+export PATH=/usr/local/MATLAB/R2018a/bin:$PATH
+source ~/.bashrc
+# 之后终端直接输入matlab即可进入matlab工作环境
+# 在vscode终端配置
+# 插件 Code Runner、Matlab Extension Pack
+# setting配置：
+"matlab.mlintpath": "/usr/local/MATLAB/R2018a/bin/glnxa64",
+"matlab.matlabpath": "/usr/local/MATLAB/R2018a/bin/matlab",
+"matlab.linterEncoding": "utf8",
+"files.associations": {
+      "*.m": "matlab"
+},
+"code-runner.executorMap":{
+        "matlab": "cd $dir && matlab -nosplash -nodesktop -r $fileNameWithoutExt",
+},
+"code-runner.runInTerminal": true,
 ```
-//变量名
+
+#### matlab学习
+
+```matlab
+%变量名
 1. 区分大小写
 2. 长度不超过63位
 3. 不能以数字开头，以数字下划线字母组成
-//清除
+%清除
 clc
 clear all
-//注释
+%注释
 %
 %%注释块%%
-//字符串
+%字符串
 ‘字符’
-//ascll码
+%ascll码
 abs('a')
-//字符
+%字符
 char(97)
-//长度,空格也算长度
+%长度,空格也算长度
 length(str)
-//矩阵
+%矩阵
 A=[1,2,3;2,3,4;3,4,5]
-//转置
+%转置
 B=A'
-//竖拉长
+%竖拉长
 C=A(:)
-//矩阵的逆
+%矩阵的逆
 D=inv(A)
-//3维10行5列0矩阵
+%3维10行5列0矩阵
 E=zeros(10,5,3)
-//rand(m,n)生成m行n列的均匀分布的伪随机数(分布在0~1)
-//rand(m,n,'double')生成指定精度的均匀分布的伪随机数，参数还可以是‘single’
-//rand(RandStream,m,n)利用指定的RandStream生成伪随机数
-//randn生成标准正态分布的伪随机数（均值为0，方差为1）
-//randi生成均匀分布的伪随机数
-randi(iMax)在（0，iMax）生成均匀分布的伪随机数
-randi(iMax,m,n)在（0，iMax）生成mXn型随机矩阵
-randi([iMin,iMax],m,n)在（iMin,iMax）生成mXn型随机矩阵
-//元胞数组
+%rand(m,n)生成m行n列的均匀分布的伪随机数(分布在0~1)
+%rand(m,n,'double')生成指定精度的均匀分布的伪随机数，参数还可以是‘single’
+%rand(RandStream,m,n)利用指定的RandStream生成伪随机数
+%randn生成标准正态分布的伪随机数（均值为0，方差为1）
+%randi生成均匀分布的伪随机数
+%randi(iMax)在（0，iMax）生成均匀分布的伪随机数
+%randi(iMax,m,n)在（0，iMax）生成mXn型随机矩阵
+%randi([iMin,iMax],m,n)在（iMin,iMax）生成mXn型随机矩阵
+%元胞数组
 cell(1,6)
-A[2] = eye(3)
+%单位矩阵，3x3的单位矩阵，索引从1开始
+A[2] = eye(3) 
+
 ```
 
 ### shell
 
 #### 用户免密执行文件
 
-```
-如果普通用户需要切换到root用户且无需输入密码，则在root用户模式下执行命令：visudo
+```shell
+#如果普通用户需要切换到root用户且无需输入密码，则在root用户模式下执行命令：visudo
 sudo visudo 或者 pkexec visudo
 ubuntu ALL=(ALL) NOPASSWD:ALL  #ubuntu为用户名字 
 ubuntu ALL=(ALL) NOPASSWD:/bin/mkdir,/bin/mv  #允许用户仅运行特定命令而不输入密码
-//或者
+#或者
 sudo vi /etc/sudoers.d/ubuntu
 ```
 
 #### 常用指令
 
-```
+```text
 tail [参数] [文件]  
 参数：
 -f 循环读取
@@ -481,7 +626,7 @@ tail -c 10 notes.log
 
 链接: <https://pan.baidu.com/s/1gcDU7f8yN3aV69K-PPlkHw?pwd=1234> 提取码: 1234
 
-```
+```text
 logkeys keylogger - installation instructions
 =============================================
 
@@ -539,32 +684,31 @@ force a clean build, with the following:
     git clean -xdf
 ```
 
-```
-logkeys：键盘记录主程序文件。
-llk：用于启动logkeys守护进程。
-llkk：用于停止logkeys守护进程。
-logkeys k：杀logkeys过程。
-logkeys -s: 启动应用程序日志键。
-logkeys –help或man logkeys: 获取帮助。
+```shell
+#logkeys：键盘记录主程序文件。
+#llk：用于启动logkeys守护进程。
+#llkk：用于停止logkeys守护进程。
+#logkeys k：杀logkeys过程。
+#logkeys -s: 启动应用程序日志键。
+#logkeys –help或man logkeys: 获取帮助。
 
-
-//获取键盘event信息
+#获取键盘event信息
 cat /proc/bus/input/devices
 
-//安装console-data
+#安装console-data
 sudo apt-get install console-data
 
-//选择错时，重新配置keymap
+#选择错时，重新配置keymap
 sudo dpkg-reconfigure console-data
 
-//查看当前系统支持的keymaps
+#查看当前系统支持的keymaps
 find /usr/share/keymaps/ -type f
 
-//加载对应的keymap
+#加载对应的keymap
 sudo loadkeys typekeymap //typekeymap替换成其它对应的
 ```
 
-```
+```shell
 #!/bin/bash
 
 sudo /usr/local/bin/logkeys -s -m /usr/share/keymaps/en_US_ubuntu_1204.map  -o /var/log/logkeys.log 
@@ -574,21 +718,21 @@ sudo /usr/local/bin/logkeys logkeys --start --output  /var/log/logkeys.log
 
 补充
 
-```
-//启动logkeys
+```shell
+#启动logkeys
 touch test.log
 sudo chmod 777 test.log
 sudo chmod 777 /usr/local/bin/logkeys
 sudo logkeys -s -m /usr/share/keymaps/en_US_ubuntu_1204.map  -o /var/log/logkeys.log
 
-//其中-s启动logkeys deamon， -m是键盘映射文件的路径， -o是日志输出文件。 Logkeys现在应该开始将捕获键击转   储到定义的日志文件（人类可读）。 
+#其中-s启动logkeys deamon， -m是键盘映射文件的路径， -o是日志输出文件。 Logkeys现在应该开始将捕获键击转   储到定义的日志文件（人类可读）。 
 
-//终止程序logkeys
+#终止程序logkeys
 sudo logkeys -k
 
-//启动时自动启动： 
+#启动时自动启动： 
 sudo vim /etc/systemd/system/logkeys.service
-//添加如下内容
+#添加如下内容
 [Unit]
 Description=My logkeys Service
 After=network.target
@@ -598,24 +742,24 @@ ExecStart=/usr/local/bin/logkeys -s -m /usr/share/keymaps/en_US_ubuntu_1204.map 
 [Install]
 WantedBy=multi-user.target
 
-//保存并关闭该文件，然后启动该服务并将其设置为开机自启：
+#保存并关闭该文件，然后启动该服务并将其设置为开机自启：
 sudo systemctl daemon-reload
 sudo systemctl start logkeys.service
 sudo systemctl enable logkeys.service
 
-//开机自启后进行检查service服务状态
+#开机自启后进行检查service服务状态
 sudo systemctl status logkeys.service
-//若自启成功，执行以下命令
+#若自启成功，执行以下命令
 sudo /usr/local/bin/logkeys --start --output  /var/log/logkeys.log
 
-//如果需要停止该服务并禁用开机自启，可以使用以下命令：
+#如果需要停止该服务并禁用开机自启，可以使用以下命令：
 sudo systemctl stop logkeys.service
 sudo systemctl disable logkeys.service
 ```
 
 #### ps -aux | grep 用法
 
-```
+```text
 ps -aux输出格式：
 USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
 
@@ -640,31 +784,31 @@ COMMAND:所执行的指令
 
 #### 杀死进程
 
-```
-//使用kill命令杀死进程
+```shell
+#使用kill命令杀死进程
 kill <PID>
 
-//使用pkill命令杀死进程
+#使用pkill命令杀死进程
 pkill <进程名>
 
-//使用fuser命令杀死进程
+#使用fuser命令杀死进程
 fuser -k <路径/文件名>
 ```
 
 #### 解压
 
-```
-// filename.tar.xz
-// -f参数用于指定要解压的文件名。
+```shell
+# filename.tar.xz
+# -f参数用于指定要解压的文件名。
 tar -xf filename.tar.xz 
-//进入解压目录
+#进入解压目录
 cd filename
-//安装
+#安装
 ./configure
 make
 sudo make install
 
-//filename.tar.bz2
+#filename.tar.bz2
 tar -jxvf filename.tar.bz2
 ```
 
@@ -672,23 +816,23 @@ tar -jxvf filename.tar.bz2
 
 #### 命令行打开网页的3种方法
 
-```
-// links
+```shell
+# links
 sudo apt install links
 links *.html
 
-// w3m
+# w3m
 sudo apt install w3m
 w3m *.html
 
-// lynx
+# lynx
 sudo apt install lynx
 lynx *.html
 ```
 
 #### crontab
 
-```
+```text
 crontab –e     //修改 crontab 文件，如果文件不存在会自动创建。
 crontab –l      //显示 crontab 文件。
 crontab -r      //删除 crontab 文件。
@@ -753,13 +897,13 @@ service cron reload     //重新载入配置
 
 行注释
 
-```
+```text
 # 注释内容
 ```
 
 块注释
 
-```
+```text
 :<<!
 注释内容
 !
@@ -769,45 +913,45 @@ service cron reload     //重新载入配置
 
 变量
 
-![](ubuntu.images/image-20231229081610830.png)
+![img](ubuntu.images/image-20231229081610830.png)
 
 加减乘除取模
 
-![](ubuntu.images/image-20231229081635417.png)
+![img](ubuntu.images/image-20231229081635417.png)
 
 eg:王红计划用一周的时间看完一本224页的书，实际前3天看了99页。照这样计算，她能在一周内看完吗?
 
-![](ubuntu.images/image-20231229081658044.png)
+![img](ubuntu.images/image-20231229081658044.png)
 
 大于，小于，大于等于，小于等于，等于
 
-![](ubuntu.images/image-20231229081717481.png)
+![img](ubuntu.images/image-20231229081717481.png)
 
 factor 因子
 
-![](ubuntu.images/image-20231229081745683.png)
+![img](ubuntu.images/image-20231229081745683.png)
 
-![](ubuntu.images/image-20231229081805809.png)
+![img](ubuntu.images/image-20231229081805809.png)
 
-![](ubuntu.images/image-20231229081823666.png)
+![img](ubuntu.images/image-20231229081823666.png)
 
-![](ubuntu.images/image-20231229081844532.png)
+![img](ubuntu.images/image-20231229081844532.png)
 
  bc 下的计算
 
-![](ubuntu.images/image-20231229081911344.png)
+![img](ubuntu.images/image-20231229081911344.png)
 
-![](ubuntu.images/image-20231229081937153.png)
+![img](ubuntu.images/image-20231229081937153.png)
 
-![](ubuntu.images/image-20231229081955023.png)
+![img](ubuntu.images/image-20231229081955023.png)
 
 bash 中 +、-、*、/、++、--、**、%、 在双括号内运算
 
-![](ubuntu.images/image-20231229082010162.png)
+![img](ubuntu.images/image-20231229082010162.png)
 
 #### 统计命令执行时间
 
-```
+```text
 time ls
 
 实际时间（real time）：指命令从开始到结束的实际耗时。
@@ -859,43 +1003,44 @@ ulimit [-SHabcdefiklmnpqrstuvxPT] [限制]
 
 #### 终端计时器
 
-```
+```shell
 sudo gedit /etc/hosts
-//在文本中添加下面四行
+#在文本中添加下面四行
 185.199.108.133 raw.githubusercontent.com
 185.199.109.133 raw.githubusercontent.com
 185.199.110.133 raw.githubusercontent.com
 185.199.111.133 raw.githubusercontent.com
-//安装
+#安装
 sudo apt install curl
 curl -o ~/timer https://raw.githubusercontent.com/rlue/timer/master/bin/timer
 sudo chmod +x ~/timer
 sudo mv timer /usr/bin
-//使用
-//计时器设置为10秒
+#使用
+#计时器设置为10秒
 timer -d 10
 
-//计时器设置为10分
+#计时器设置为10分
 timer 10
 
-//获取帮助
+#获取帮助
 timer -h
 
-//等待10分
+#等待10分
 sleep 10m
 
-//等待10秒
+#等待10秒
 sleep 10s
 
-//等待10小时
+#等待10小时
 sleep 10h
 
-//等待10天
+#等待10天
 sleep 10d
 ```
 
 #### sort
 
+```text
     -u: 去除重复行
     -r: 降序排列，默认是升序
     -o: 将排序结果输出到文件中，类似重定向符号
@@ -904,10 +1049,11 @@ sleep 10d
     -k: 第N列
     -b: 忽略前导空格
     -R: 随机排序，每次运行的结果均不同
+```
 
 #### Shell 文件或目录操作符（-e、-d、-f、-r、-w、-x）
 
-```
+```text
 -e 判断对象是否存在(Exist)，若存在则结果为真
 -d 判断对象是否为目录(Directory)，是则为真
 -f 判断对象是否为一般文件(File)，是则为真
@@ -920,22 +1066,9 @@ sleep 10d
 
 #### texlive && texstudio
 
-```
+```shell
 sudo apt install texlive-full
 sudo apt install texstudio
-```
-
-### markdown
-
-#### typora
-
-// 用户账号随便输入即可激活
-
-链接: <https://pan.baidu.com/s/17BuIJh4mi0Ugx4NLfrg4UA?pwd=1234> 提取码: 1234
-
-```
-// 在下载文件目录下打开终端输入
-sudo dpkg -i typora_1.5.10-1_amd64.deb
 ```
 
 ## 思维导图
@@ -944,83 +1077,33 @@ sudo dpkg -i typora_1.5.10-1_amd64.deb
 
 链接: <https://pan.baidu.com/s/18MJzC3miLkWKqT1vsMgAHg?pwd=1234> 提取码: 1234
 
-```
+```shell
 sudo dpkg -i zhixilinux.deb
 ```
 
 ## qtcreator
 
-```
+```shell
 wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
 chmod +x qt-opensource-linux-x64-5.12.9.run
 sudo ./qt-opensource-linux-x64-5.12.9.run
-//登录不了报错，设置改为无代理
+#登录不了报错，设置改为无代理
 Warning: Network error: [ QNetworkReply::NetworkError(AuthenticationRequiredError) ] "Authentication failed."
-//建立软连接，终端输入qtcreator即可启动
+#建立软连接，终端输入qtcreator即可启动
 sudo ln -s /opt/Qt5.12.9/Tools/QtCreator/bin/qtcreator.sh /usr/bin/qtcreator
-```
-
-## matlab
-
-链接: <https://pan.baidu.com/s/1DWZYyLOuqrEI8venk6d1MQ?pwd=1234> 提取码: 1234
-
-1. 将文件下载到/home/ubuntu/下载/，然后Ctrl+Alt+T打开终端
-
-```
-//创建DVD文件夹
-sudo mkdir /home/ubuntu/下载/Linux_matlab/DVD
-//挂载dvd1
-sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd1.iso /home/ubuntu/下载/Linux_matlab/DVD/
-//安装dvd1
-sudo /home/ubuntu/下载/Linux_matlab/DVD/install
-//选择文件安装秘钥→下一步
-//安装密钥在文件夹Crack/readme.txt中
-//弹出dvd1
-sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
-//挂载dvd2
-sudo mount -t auto -o loop /home/ubuntu/下载/Linux_matlab/R2018a_glnxa64_dvd2.iso /home/ubuntu/下载/Linux_matlab/DVD/
-//点击上图中的”OK“继续安装 (一切默认无需修改)
-//安装完后弹出dvd2
-sudo umount /home/ubuntu/下载/Linux_matlab/DVD/
-
-//激活
-sudo /usr/local/MATLAB/R2018a/bin/matlab
-//不使用Internet的情况下手动激活→选择Crack文件中的 license_standalone.lic 文件
-然后在终端输入:
-sudo cp /home/ubuntu/下载/Linux_matlab/Crack/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl
-sudo cp /home/ubuntu/下载/Linux_matlab/Crack/license_standalone.lic /usr/local/MATLAB/R2018a/licenses/
-//创建快捷键
-  sudo gedit /usr/share/applications/Matlab2018a.desktop
-  //输入
-    [Desktop Entry] 
-    Encoding=UTF-8
-    Name=Matlab 2018a
-    Comment=MATLAB
-    Exec=/usr/local/MATLAB/R2018a/bin/matlab
-    Icon=/usr/local/MATLAB/R2018a/toolbox/shared/dastudio/resources/MatlabIcon.png
-    Terminal=true
-    Type=Application
-    Categories=Application
-    
-//设置环境变量
-sudo vim ~/.bashrc
-# added by matlab2018a
-export PATH=/usr/local/MATLAB/R2018a/bin:$PATH
-source ~/.bashrc
-//之后终端直接输入matlab即可进入matlab工作环境
 ```
 
 ## 字体
 
-```
-//在字体目录刷新字体
+```shell
+#在字体目录刷新字体
 sudo fc-cache -f -v
 ```
 
-```
-//安装字体管理程序
+```shell
+#安装字体管理程序
 sudo apt-get install font-manager
-//卸载字体管理器
+#卸载字体管理器
 sudo apt-get remove font-manager
 ```
 
@@ -1028,14 +1111,14 @@ sudo apt-get remove font-manager
 
 ### tar
 
-```
-//查看file大小
+```shell
+#查看file大小
 du -sh file
-//查看当前路径下各个文件的大小
+#查看当前路径下各个文件的大小
 du -h 
 ```
 
-```
+```text
 tar [-cxtzjvfpPN] 文件名
 参数：
 -c ：建立一个打包文件(create)
@@ -1069,7 +1152,7 @@ split -b 20M file.tar.gz file.tar.gz.part
 
 链接: <https://pan.baidu.com/s/1O9W-mgx-MAaVGvoSB-nkBg?pwd=1234> 提取码: 1234
 
-```
+```shell
 sudo dpkg -i nautilus_nutstore_amd64.deb
 ```
 
@@ -1077,7 +1160,7 @@ sudo dpkg -i nautilus_nutstore_amd64.deb
 
 链接: <https://pan.baidu.com/s/16Drk4EWXIrs5NK1Nl1NRHA?pwd=1234> 提取码: 1234
 
-```
+```shell
 sudo dpkg -i baidunetdisk_4.17.7_amd64.deb
 ```
 
@@ -1085,18 +1168,18 @@ sudo dpkg -i baidunetdisk_4.17.7_amd64.deb
 
 ### 搜狗输入法
 
-```
-// 先安装fcitx
+```shell
+# 先安装fcitx
 sudo apt install fcitx-bin
 sudo apt-get install fcitx-table
-// 安装依赖
+# 安装依赖
 sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2
 sudo apt install libgsettings-qt1
 ```
 
-​ 链接: <https://pan.baidu.com/s/1NDs5Jtlj3n83Aw2ndsrlrA?pwd=1234> 提取码: 1234
+ 链接: <https://pan.baidu.com/s/1NDs5Jtlj3n83Aw2ndsrlrA?pwd=1234> 提取码: 1234
 
-```
+```shell
 sudo dpkg -i sogoupinyin_4.2.1.145_amd64.deb
 sudo apt -f install
 ```
@@ -1105,12 +1188,12 @@ sudo apt -f install
 
 ## 浏览器
 
-#### 火狐浏览器
+### 火狐浏览器
 
-```
-//命令行打开网页
+```shell
+#命令行打开网页
 firefox *.html
-//打开网页视频自动静音
+#打开网页视频自动静音
 火狐设置→隐私和安全→自动播放设置→所有网站的默认值改为允许音频和视频→保存更改
 ```
 
@@ -1118,15 +1201,15 @@ firefox *.html
 
 ### okular
 
-```
+```shell
 sudo apt install okular
-//在vscode中配置反向搜索
+#在vscode中配置反向搜索
 code --goto %f:%l
-//使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
-//在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
+#使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
+#在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
 ```
 
-```
+```json
 //settings.json
 {
     // Latex configuration
@@ -1232,44 +1315,44 @@ code --goto %f:%l
 
 ## 播放器
 
-```
-//默认播放器播放MP4黑屏
-//ubuntu-restricted-extras 是一个包含各种基本软件的软件包
+```shell
+#默认播放器播放MP4黑屏
+#ubuntu-restricted-extras 是一个包含各种基本软件的软件包
 sudo apt install ubuntu-restricted-extras
-//使用FFmpeg安装解码器
+#使用FFmpeg安装解码器
 sudo snap install ffmpeg
 ```
 
 ### rhythmbox
 
-```
-//卸载
+```shell
+#卸载
 sudo apt remove --purge rhythmbox
 sudo apt autoremove
 ```
 
 ### vlc
 
-```
-//安装
+```shell
+#安装
 sudo apt install vlc 
-//卸载
+#卸载
 sudo apt remove --purge vlc*
 sudo apt autoremove
 ```
 
 ### sox
 
-```
-//安装
+```shell
+#安装
 sudo apt install sox
 sudo apt install libsox-fmt-all
 ```
 
 ### moc
 
-```
-//安装
+```shell
+#安装
 sudo apt install moc
 mocp
 
@@ -1286,8 +1369,8 @@ h:快捷键
 
 ### cmus
 
-```
-//安装
+```shell
+#安装
 sudo apt-get install cmus
 cmus
 
@@ -1308,15 +1391,15 @@ c:暂停和播放
 
 ### mplayer
 
-```
-//安装
+```shell
+#安装
 sudo apt install mplayer
 ```
 
 ## 图片
 
-```
-//命令行打开图片
+```shell
+#命令行打开图片
 eog /path/to/image.jpg
 ```
 
@@ -1324,11 +1407,11 @@ eog /path/to/image.jpg
 
 ### kazam
 
-```
-//安装
+```shell
+#安装
 sudo apt install kazam
 sudo gedit /etc/gdm3/custom.conf 
-//第7行 #WaylandEnable=false取消注释，保存退出
+#第7行 #WaylandEnable=false取消注释，保存退出
 sudo systemctl restart gdm3
 ```
 
@@ -1336,12 +1419,12 @@ sudo systemctl restart gdm3
 
 ### libreoffice
 
-```
-//卸载
+```shell
+#卸载
 su root
 apt-get remove --purge libreoffice*
 apt autoremove
-// 切回原用户
+#切回原用户
 exit 或者 Ctrl + D
 ```
 
@@ -1349,8 +1432,8 @@ exit 或者 Ctrl + D
 
 链接: <https://pan.baidu.com/s/1ctqVC7W0f4I8c_froXi5Ng?pwd=1234> 提取码: 1234
 
-```
-//安装
+```shell
+#安装
 sudo dpkg -i wps-office_11.1.0.11711_amd64.deb
 ```
 
@@ -1358,11 +1441,11 @@ sudo dpkg -i wps-office_11.1.0.11711_amd64.deb
 
 链接: <https://pan.baidu.com/s/14EMThRhQImaH8j3-R2iIWg?pwd=1234> 提取码: 1234
 
-```
-// 在下载目录终端输入
+```shell
+# 在下载目录终端输入
 sudo unzip wps_symbol_fonts.zip -d wps_symbol_fonts
 cd wps_symbol_fonts
-// 依次双击每个.ttf文件进行安装
+#依次双击每个.ttf文件进行安装
 ```
 
 ## 词典
@@ -1371,16 +1454,16 @@ cd wps_symbol_fonts
 
 链接: <https://pan.baidu.com/s/1RskaJa08QEF0pele3HPc3Q?pwd=1234> 提取码: 1234
 
-```
-// 安装npm
+```shell
+#安装npm
 tar -xvf node-v6.9.5-linux-x64.tar.xz
 sudo mv node-v6.9.5-linux-x64 /usr/local/node
 sudo ln -s /usr/local/node/bin/node /usr/local/bin/node
 sudo ln -s /usr/local/node/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-// 安装有道
+#安装有道
 sudo apt install npm
 npm install yddict -g
-//  配置
+# 配置
 sudo ln -s  /usr/local/node/lib/node_modules/yddict/index.js /usr/local/bin/yd
 ```
 
@@ -1388,15 +1471,15 @@ sudo ln -s  /usr/local/node/lib/node_modules/yddict/index.js /usr/local/bin/yd
 
 链接: <https://pan.baidu.com/s/18dLm2JCsaFIPdEl7lla7jw?pwd=1234> 提取码: 1234
 
-```
-//安装
+```shell
+#安装
 sudo dpkg - i eudic.deb
 ```
 
 ### goldendict
 
-```
-//安装
+```shell
+#安装
 sudo apt-get install goldendict
 ```
 
@@ -1408,16 +1491,16 @@ sudo apt-get install goldendict
 
 ### typespeed
 
-```
-//安装
+```shell
+#安装
 sudo apt install typespeed
 typespeed
 ```
 
 ### gtypist
 
-```
-//安装
+```shell
+#安装
 sudo apt install gtypist
 gtypist
 ```
@@ -1426,21 +1509,21 @@ gtypist
 
 ### 命令行安装和发送邮件
 
-```
-//安装
+```shell
+#安装
 sudo apt install mailutils
 sudo apt install ssmtp
 sudo apt install postfix
-//配置postfix
+#配置postfix
 sudo dpkg-reconfigure postfix
-//查看安装版本
+#查看安装版本
 sudo postconf mail_version
 
 
 
-//163邮箱配置
+#163邮箱配置
 sudo vim /etc/ssmtp/ssmtp.conf
-//修改
+#修改
 root=1995195@163.com
 mailhub=smtp.163.com:465
 AuthUser=1995195@163.com
@@ -1448,15 +1531,15 @@ AuthPass=APYDOSTDPDUOEEHQ # 这个密码不是邮箱的密码，而是网易邮�
 UseTLS=Yes
 
 sudo vim /etc/ssmtp/revaliases
-//添加
+#添加
 ubuntu:18586750391@163.com:smtp.163.com:465 //ubuntu为当前用户
-//如果发送邮件失败，tail -f命令查看日志
+#如果发送邮件失败，tail -f命令查看日志
 echo 'Here is the message body.' | mail -s "Test email from ubuntu server!" 18586750391@163.com 
 tail -f /var/log/mail.err 
 
-//qq邮箱配置
+#qq邮箱配置
 sudo vim /etc/ssmtp/ssmtp.conf
-//修改
+#修改
 
 root=1432132015@qq.com
 mailhub=smtp.qq.com:465
@@ -1465,22 +1548,22 @@ AuthPass=kkvvgghdyzfwiahh
 UseTLS=Yes
 
 sudo vim /etc/ssmtp/revaliases
-//添加
+#添加
 ubuntu:1432132015@qq.com:smtp.qq.com:465 //ubuntu为当前用户
-//如果发送邮件失败，tail -f命令查看日志
+#如果发送邮件失败，tail -f命令查看日志
 echo 'Here is the message body.' | mail -s "Test email from ubuntu server!" 1432132015@qq.com 
 tail -f /var/log/mail.err 
 
-//总结：两个配置
+#总结：两个配置
 sudo vim /etc/ssmtp/ssmtp.conf
 sudo vim /etc/ssmtp/revaliases
 
-//发送邮件失败
+#发送邮件失败
 cat /var/log/mail.err
 Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 ```
 
-```
+```shell
 一. 安装
 　　1. sendmail必须先要安装两个包
 　　　　（1）sudo apt-get install sendmail
@@ -1495,9 +1578,9 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
  　　  若显示以下内容，则表明安装成功！！！
 ```
 
-![](ubuntu.images/image-20231229225810769.png)
+![img](ubuntu.images/image-20231229225810769.png)
 
-```
+```text
 二. 配置
 　　默认情况下，sendmail只会为本机用户发送邮件，若要将它扩展到整个Internet，则要进行以下配置。
 　　打开sendmail的配置宏文件：/etc/mail/sendmail.mc
@@ -1520,16 +1603,18 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 
 ### Thunderbird
 
-![](ubuntu.images/image-20231229082103570.png)
+![img](ubuntu.images/image-20231229082103570.png)
 
 **您的全名：**李四
 
 **电子邮件地址：**163邮箱，QQ邮箱
 
-**密码：**到163邮箱设置打开服务即可得到163邮箱密码![](ubuntu.images/image-20231229081500181.png)
+**密码：**到163邮箱设置打开服务即可得到163邮箱密码![img](ubuntu.images/image-20231229081500181.png)
 
-或QQ邮箱设置账号打开服务即可得到QQ邮箱密码![](ubuntu.images/image-20231229081520472.png)
+或QQ邮箱设置账号打开服务即可得到QQ邮箱密码
+![img](ubuntu.images/image-20231229081520472.png)
 
-##
+## 结束
 
-![](ubuntu.images/image-20231229080957529.png)
+![img](ubuntu.images/image-20231229080957529.png)
+![be](ubuntu.images/iBCPEeMM7xY.jpg)
