@@ -14,7 +14,7 @@ code
 sudo snap remove --purge code
 ```
 
-链接: https://pan.baidu.com/s/1d7f9VUvyFRKie2a8idzpUw?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1d7f9VUvyFRKie2a8idzpUw?pwd=1234> 提取码: 1234
 
 ```
 //重新安装最新版本
@@ -186,8 +186,6 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 sudo apt-get install tcl-dev tk-dev python3-tk
 ```
 
-
-
 #### java
 
 ```
@@ -237,8 +235,6 @@ java -version 查看当前版本
 ]
 ```
 
-
-
 #### git
 
 从[github](https://github.com/new)中创建空仓库
@@ -274,8 +270,6 @@ sudo apt-get install gnutls-bin
 git config --global http.sslVerify false
 git config --global http.postBuffer 1048576000
 ```
-
-
 
 #### html
 
@@ -319,45 +313,45 @@ Topic 4: HTML元素属性
 
 ```
 // JavaScript (ES6) Code Snippets
-imp→	import moduleName from 'module';
-imn→	import 'module';
-imd→	import {  } from 'module';
-ime→	import * as alias from 'module';
-ima→	import { originalName as alias } from 'module';
-rqr→	require('package');
-req→	const packageName = require('packageName');
-mde→	module.exports = {};
-env→	export const exportVariable = localVariable;
-enf→	export const functionName = (params) => {};
-edf→	export default function test(params) {};
-ecl→	export default class className {};
-ece→	export default class className extends 			         baseclassName {};
-fof→	for (const item of object) {}
-fin→	for (const item in object) {}
-anfn→	(params) => {}
-nfn→	const name = (params) => {}
-dob→	const {propertyName} = objectToDestruct;
-dar→	const [propertyName] = arrayToDestruct;
-sti→	setInterval(() => {}, intervalInms);
-sto→	setTimeout(() => {}, delayInms);
-prom→	return new Promise((resolve, reject) => {});
-thenc→	.then((result) => {}).catch((err) => {});
-cas→	console.assert(expression, object);
-ccl→	console.clear();
-cco→	console.count(label);
-cdb→	console.debug(object);
-cdi→	console.dir(object);
-cer→	console.error(object);
-cgr→	console.group('label');
-cge→	console.groupEnd();
-clg→	console.log(object);
-clo→	console.log('object :>> ', object);
-ctr→	console.trace(object);
-cwa→	console.warn(object);
-cin→	console.info(object);
-clt→	console.table(object);
-cti→	console.time(object);
-cte→	console.timeEnd(object);
+imp→ import moduleName from 'module';
+imn→ import 'module';
+imd→ import {  } from 'module';
+ime→ import * as alias from 'module';
+ima→ import { originalName as alias } from 'module';
+rqr→ require('package');
+req→ const packageName = require('packageName');
+mde→ module.exports = {};
+env→ export const exportVariable = localVariable;
+enf→ export const functionName = (params) => {};
+edf→ export default function test(params) {};
+ecl→ export default class className {};
+ece→ export default class className extends             baseclassName {};
+fof→ for (const item of object) {}
+fin→ for (const item in object) {}
+anfn→ (params) => {}
+nfn→ const name = (params) => {}
+dob→ const {propertyName} = objectToDestruct;
+dar→ const [propertyName] = arrayToDestruct;
+sti→ setInterval(() => {}, intervalInms);
+sto→ setTimeout(() => {}, delayInms);
+prom→ return new Promise((resolve, reject) => {});
+thenc→ .then((result) => {}).catch((err) => {});
+cas→ console.assert(expression, object);
+ccl→ console.clear();
+cco→ console.count(label);
+cdb→ console.debug(object);
+cdi→ console.dir(object);
+cer→ console.error(object);
+cgr→ console.group('label');
+cge→ console.groupEnd();
+clg→ console.log(object);
+clo→ console.log('object :>> ', object);
+ctr→ console.trace(object);
+cwa→ console.warn(object);
+cin→ console.info(object);
+clt→ console.table(object);
+cti→ console.time(object);
+cte→ console.timeEnd(object);
 
 // CSS Peek
 从HTML中的字符串中找到css/scss/less(类和id)。
@@ -444,8 +438,6 @@ cell(1,6)
 A[2] = eye(3)
 ```
 
-
-
 ### shell
 
 #### 用户免密执行文件
@@ -458,8 +450,6 @@ ubuntu ALL=(ALL) NOPASSWD:/bin/mkdir,/bin/mv  #允许用户仅运行特定命令
 //或者
 sudo vi /etc/sudoers.d/ubuntu
 ```
-
-
 
 #### 常用指令
 
@@ -487,11 +477,9 @@ tail -n +20 notes.log
 tail -c 10 notes.log
 ```
 
-
-
 #### ubuntu键盘输入记录
 
-链接: https://pan.baidu.com/s/1gcDU7f8yN3aV69K-PPlkHw?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1gcDU7f8yN3aV69K-PPlkHw?pwd=1234> 提取码: 1234
 
 ```
 logkeys keylogger - installation instructions
@@ -663,8 +651,6 @@ pkill <进程名>
 fuser -k <路径/文件名>
 ```
 
-
-
 #### 解压
 
 ```
@@ -699,8 +685,6 @@ w3m *.html
 sudo apt install lynx
 lynx *.html
 ```
-
-
 
 #### crontab
 
@@ -764,8 +748,6 @@ service cron reload     //重新载入配置
 2 表示stderr标准错误
 & 表示等同于的意思，2>&1，表示2的输出重定向等同于1
 ```
-
-
 
 #### 注释
 
@@ -840,30 +822,30 @@ timeout <持续时间> <命令>：若该命令在 <持续时间> 后仍在运行
 
 ulimit [-SHabcdefiklmnpqrstuvxPT] [限制]
 选项：
-      -S	使用 "软" (soft) 资源限制
-      -H	使用 "硬" (hard) 资源限制
-      -a	报告当前的所有限制
-      -b	套接字缓冲区大小
-      -c	创建的核心文件的最大大小
-      -d	一个进程的数据段的最大大小
-      -e	调度优先级 (nice) 的最大值
-      -f	shell 及其子进程可以写的最大文件大小
-      -i	可以挂起的最大信号数量
-      -k	分配给此进程的最大 kqueue 数量
-      -l	一个进程可以锁定的最大内存大小
-      -m	驻留集的最大大小
-      -n	打开的文件描述符的最大个数
-      -p	管道缓冲区大小
-      -q	POSIX 消息队列的最大字节数
-      -r	实时调度的最大优先级
-      -s	最大栈大小
-      -t	最大的 CPU 时间，以秒为单位
-      -u	最大用户进程数
-      -v	虚拟内存大小
-      -x	文件锁的最大数量
-      -P	伪终端的最大数量
-      -R	实时进程阻塞前可运行的最大时间
-      -T	最大线程数量
+      -S 使用 "软" (soft) 资源限制
+      -H 使用 "硬" (hard) 资源限制
+      -a 报告当前的所有限制
+      -b 套接字缓冲区大小
+      -c 创建的核心文件的最大大小
+      -d 一个进程的数据段的最大大小
+      -e 调度优先级 (nice) 的最大值
+      -f shell 及其子进程可以写的最大文件大小
+      -i 可以挂起的最大信号数量
+      -k 分配给此进程的最大 kqueue 数量
+      -l 一个进程可以锁定的最大内存大小
+      -m 驻留集的最大大小
+      -n 打开的文件描述符的最大个数
+      -p 管道缓冲区大小
+      -q POSIX 消息队列的最大字节数
+      -r 实时调度的最大优先级
+      -s 最大栈大小
+      -t 最大的 CPU 时间，以秒为单位
+      -u 最大用户进程数
+      -v 虚拟内存大小
+      -x 文件锁的最大数量
+      -P 伪终端的最大数量
+      -R 实时进程阻塞前可运行的最大时间
+      -T 最大线程数量
     并非所有选项都在所有系统上可用。
     如果提供了 <限制>，则它将成为指定的资源的新的值；特殊的 <限制> 值为
     "soft"、"hard" 和 "unlimited"，分别表示当前的软限制、当前的硬限制，
@@ -934,8 +916,6 @@ sleep 10d
 -x 对象是否有可执行(eXcute)权限，是则为真
 ```
 
-
-
 ### latex
 
 #### texlive && texstudio
@@ -951,7 +931,7 @@ sudo apt install texstudio
 
 // 用户账号随便输入即可激活
 
-链接: https://pan.baidu.com/s/17BuIJh4mi0Ugx4NLfrg4UA?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/17BuIJh4mi0Ugx4NLfrg4UA?pwd=1234> 提取码: 1234
 
 ```
 // 在下载文件目录下打开终端输入
@@ -962,12 +942,14 @@ sudo dpkg -i typora_1.5.10-1_amd64.deb
 
 ### 知犀思维导图
 
-链接: https://pan.baidu.com/s/18MJzC3miLkWKqT1vsMgAHg?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/18MJzC3miLkWKqT1vsMgAHg?pwd=1234> 提取码: 1234
 
 ```
 sudo dpkg -i zhixilinux.deb
 ```
+
 ## qtcreator
+
 ```
 wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
 chmod +x qt-opensource-linux-x64-5.12.9.run
@@ -978,11 +960,9 @@ Warning: Network error: [ QNetworkReply::NetworkError(AuthenticationRequiredErro
 sudo ln -s /opt/Qt5.12.9/Tools/QtCreator/bin/qtcreator.sh /usr/bin/qtcreator
 ```
 
-
-
 ## matlab
 
-链接: https://pan.baidu.com/s/1DWZYyLOuqrEI8venk6d1MQ?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1DWZYyLOuqrEI8venk6d1MQ?pwd=1234> 提取码: 1234
 
 1. 将文件下载到/home/ubuntu/下载/，然后Ctrl+Alt+T打开终端
 
@@ -1031,6 +1011,7 @@ source ~/.bashrc
 ```
 
 ## 字体
+
 ```
 //在字体目录刷新字体
 sudo fc-cache -f -v
@@ -1042,8 +1023,6 @@ sudo apt-get install font-manager
 //卸载字体管理器
 sudo apt-get remove font-manager
 ```
-
-
 
 ## 压缩
 
@@ -1088,7 +1067,7 @@ split -b 20M file.tar.gz file.tar.gz.part
 
 ### 坚果云
 
-链接: https://pan.baidu.com/s/1O9W-mgx-MAaVGvoSB-nkBg?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1O9W-mgx-MAaVGvoSB-nkBg?pwd=1234> 提取码: 1234
 
 ```
 sudo dpkg -i nautilus_nutstore_amd64.deb
@@ -1096,7 +1075,7 @@ sudo dpkg -i nautilus_nutstore_amd64.deb
 
 ### 百度网盘
 
-链接: https://pan.baidu.com/s/16Drk4EWXIrs5NK1Nl1NRHA?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/16Drk4EWXIrs5NK1Nl1NRHA?pwd=1234> 提取码: 1234
 
 ```
 sudo dpkg -i baidunetdisk_4.17.7_amd64.deb
@@ -1115,7 +1094,7 @@ sudo apt install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2
 sudo apt install libgsettings-qt1
 ```
 
-​	链接: https://pan.baidu.com/s/1NDs5Jtlj3n83Aw2ndsrlrA?pwd=1234 提取码: 1234
+​ 链接: <https://pan.baidu.com/s/1NDs5Jtlj3n83Aw2ndsrlrA?pwd=1234> 提取码: 1234
 
 ```
 sudo dpkg -i sogoupinyin_4.2.1.145_amd64.deb
@@ -1134,8 +1113,11 @@ firefox *.html
 //打开网页视频自动静音
 火狐设置→隐私和安全→自动播放设置→所有网站的默认值改为允许音频和视频→保存更改
 ```
+
 ## 阅读器
+
 ### okular
+
 ```
 sudo apt install okular
 //在vscode中配置反向搜索
@@ -1143,6 +1125,7 @@ code --goto %f:%l
 //使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
 //在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
 ```
+
 ```
 //settings.json
 {
@@ -1247,7 +1230,6 @@ code --goto %f:%l
 }
 ```
 
-
 ## 播放器
 
 ```
@@ -1258,8 +1240,6 @@ sudo apt install ubuntu-restricted-extras
 sudo snap install ffmpeg
 ```
 
-
-
 ### rhythmbox
 
 ```
@@ -1268,7 +1248,7 @@ sudo apt remove --purge rhythmbox
 sudo apt autoremove
 ```
 
-### vlc 
+### vlc
 
 ```
 //安装
@@ -1340,8 +1320,6 @@ sudo apt install mplayer
 eog /path/to/image.jpg
 ```
 
-
-
 ## 录屏
 
 ### kazam
@@ -1369,7 +1347,7 @@ exit 或者 Ctrl + D
 
 ### wps
 
-链接: https://pan.baidu.com/s/1ctqVC7W0f4I8c_froXi5Ng?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1ctqVC7W0f4I8c_froXi5Ng?pwd=1234> 提取码: 1234
 
 ```
 //安装
@@ -1378,7 +1356,7 @@ sudo dpkg -i wps-office_11.1.0.11711_amd64.deb
 
 // 提示缺少字体下载字体包
 
-链接: https://pan.baidu.com/s/14EMThRhQImaH8j3-R2iIWg?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/14EMThRhQImaH8j3-R2iIWg?pwd=1234> 提取码: 1234
 
 ```
 // 在下载目录终端输入
@@ -1391,7 +1369,7 @@ cd wps_symbol_fonts
 
 ### ubuntu 命令行查词yd
 
-链接: https://pan.baidu.com/s/1RskaJa08QEF0pele3HPc3Q?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/1RskaJa08QEF0pele3HPc3Q?pwd=1234> 提取码: 1234
 
 ```
 // 安装npm
@@ -1408,7 +1386,7 @@ sudo ln -s  /usr/local/node/lib/node_modules/yddict/index.js /usr/local/bin/yd
 
 ### eudic
 
-链接: https://pan.baidu.com/s/18dLm2JCsaFIPdEl7lla7jw?pwd=1234 提取码: 1234
+链接: <https://pan.baidu.com/s/18dLm2JCsaFIPdEl7lla7jw?pwd=1234> 提取码: 1234
 
 ```
 //安装
@@ -1422,9 +1400,9 @@ sudo dpkg - i eudic.deb
 sudo apt-get install goldendict
 ```
 
-// 词典数据：《简单释义比例词典》链接: https://pan.baidu.com/s/1EheNb8rTjwphxzrjqInkFA?pwd=1234 提取码: 1234
+// 词典数据：《简单释义比例词典》链接: <https://pan.baidu.com/s/1EheNb8rTjwphxzrjqInkFA?pwd=1234> 提取码: 1234
 
-《简明英汉字典增强版》链接: https://pan.baidu.com/s/1kixRmcB-WRzeC3hwxHTfBQ?pwd=1234 提取码: 1234
+《简明英汉字典增强版》链接: <https://pan.baidu.com/s/1kixRmcB-WRzeC3hwxHTfBQ?pwd=1234> 提取码: 1234
 
 ## 打字练习
 
@@ -1514,7 +1492,7 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 　　4. 测试
 　　　　输入命令：
 　　　　ps aux | grep sendmail
- 　　	 若显示以下内容，则表明安装成功！！！
+ 　　  若显示以下内容，则表明安装成功！！！
 ```
 
 ![](ubuntu.images/image-20231229225810769.png)
@@ -1528,7 +1506,7 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 　　将Addr=127.0.0.1改为0.0.0.0，表明可以连接到任何服务器上
 　　生成新的配置文件：
 代码 
-	sudo su
+ sudo su
     cd /etc/mail  
     mv sendmail.cf sendmail.cf~      //做一个备份  
     m4 sendmail.mc > sendmail.cf   //>的左右有空格，提示错误没有安装sendmail-cf  
@@ -1539,8 +1517,6 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 　　　　3.以文件内容作为邮件正文来发送： mail -s test test@126.com < test.txt
 　　　　4.发送带附件的邮件： uuencode 附件 附件名| mail -s "邮件标题" 收信人
 ```
-
-
 
 ### Thunderbird
 
@@ -1554,8 +1530,6 @@ Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 
 或QQ邮箱设置账号打开服务即可得到QQ邮箱密码![](ubuntu.images/image-20231229081520472.png)
 
-
-
-## 
+##
 
 ![](ubuntu.images/image-20231229080957529.png)
