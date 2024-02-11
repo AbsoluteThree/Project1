@@ -18,15 +18,15 @@
 ```shell
 sudo snap install --classic code
 code
-#无法输入输入中文，卸载后重新安装最新版本
-#卸载
+# 无法输入输入中文，卸载后重新安装最新版本
+# 卸载
 sudo snap remove --purge code
 ```
 
 链接: <https://pan.baidu.com/s/1d7f9VUvyFRKie2a8idzpUw?pwd=1234> 提取码: 1234
 
 ```shell
-#重新安装最新版本
+# 重新安装最新版本
 sudo dpkg -i code.deb
 code
 ```
@@ -196,14 +196,14 @@ sudo apt-get install tcl-dev tk-dev python3-tk
 #### java
 
 ```shell
-#安装
+# 安装
 sudo apt update
 sudo apt install openjdk-8-jdk
 
-#选择默认版本
+# 选择默认版本
 sudo update-alternatives --config java
 
-#配置环境变量
+# 配置环境变量
 sudo gedit /etc/profile 在文本末尾追加一下内容
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -394,7 +394,7 @@ cte→ console.timeEnd(object);
 链接: <https://pan.baidu.com/s/17BuIJh4mi0Ugx4NLfrg4UA?pwd=1234> 提取码: 1234
 
 ```shell
-#在下载文件目录下打开终端输入
+# 在下载文件目录下打开终端输入
 sudo dpkg -i typora_1.5.10-1_amd64.deb
 ```
 
@@ -619,11 +619,11 @@ I = A ./ B
 #### 用户免密执行文件
 
 ```shell
-#如果普通用户需要切换到root用户且无需输入密码，则在root用户模式下执行命令：visudo
+# 如果普通用户需要切换到root用户且无需输入密码，则在root用户模式下执行命令：visudo
 sudo visudo 或者 pkexec visudo
 ubuntu ALL=(ALL) NOPASSWD:ALL  #ubuntu为用户名字 
 ubuntu ALL=(ALL) NOPASSWD:/bin/mkdir,/bin/mv  #允许用户仅运行特定命令而不输入密码
-#或者
+# 或者
 sudo vi /etc/sudoers.d/ubuntu
 ```
 
@@ -716,26 +716,22 @@ force a clean build, with the following:
 ```
 
 ```shell
-#logkeys：键盘记录主程序文件。
-#llk：用于启动logkeys守护进程。
-#llkk：用于停止logkeys守护进程。
-#logkeys k：杀logkeys过程。
-#logkeys -s: 启动应用程序日志键。
-#logkeys –help或man logkeys: 获取帮助。
+# logkeys：键盘记录主程序文件。
+# llk：用于启动logkeys守护进程。
+# logkeys k：杀logkeys过程。
+# logkeys -s: 启动应用程序日志键。
+# logkeys –help或man logkeys: 获取帮助。
 
-#获取键盘event信息
+# 获取键盘event信息
 cat /proc/bus/input/devices
 
-#安装console-data
+# 安装console-data
 sudo apt-get install console-data
 
-#选择错时，重新配置keymap
+# 选择错时，重新配置keymap
 sudo dpkg-reconfigure console-data
 
-#查看当前系统支持的keymaps
-find /usr/share/keymaps/ -type f
-
-#加载对应的keymap
+# 加载对应的keymap
 sudo loadkeys typekeymap //typekeymap替换成其它对应的
 ```
 
@@ -750,20 +746,20 @@ sudo /usr/local/bin/logkeys logkeys --start --output  /var/log/logkeys.log
 补充
 
 ```shell
-#启动logkeys
+# 启动logkeys
 touch test.log
 sudo chmod 777 test.log
 sudo chmod 777 /usr/local/bin/logkeys
 sudo logkeys -s -m /usr/share/keymaps/en_US_ubuntu_1204.map  -o /var/log/logkeys.log
 
-#其中-s启动logkeys deamon， -m是键盘映射文件的路径， -o是日志输出文件。 Logkeys现在应该开始将捕获键击转   储到定义的日志文件（人类可读）。 
+# 其中-s启动logkeys deamon， -m是键盘映射文件的路径， -o是日志输出文件。 Logkeys现在应该开始将捕获键击转   储到定义的日志文件（人类可读）。 
 
-#终止程序logkeys
+# 终止程序logkeys
 sudo logkeys -k
 
-#启动时自动启动： 
+# 启动时自动启动： 
 sudo vim /etc/systemd/system/logkeys.service
-#添加如下内容
+# 添加如下内容
 [Unit]
 Description=My logkeys Service
 After=network.target
@@ -773,17 +769,17 @@ ExecStart=/usr/local/bin/logkeys -s -m /usr/share/keymaps/en_US_ubuntu_1204.map 
 [Install]
 WantedBy=multi-user.target
 
-#保存并关闭该文件，然后启动该服务并将其设置为开机自启：
+# 保存并关闭该文件，然后启动该服务并将其设置为开机自启：
 sudo systemctl daemon-reload
 sudo systemctl start logkeys.service
 sudo systemctl enable logkeys.service
 
-#开机自启后进行检查service服务状态
+# 开机自启后进行检查service服务状态
 sudo systemctl status logkeys.service
-#若自启成功，执行以下命令
+# 若自启成功，执行以下命令
 sudo /usr/local/bin/logkeys --start --output  /var/log/logkeys.log
 
-#如果需要停止该服务并禁用开机自启，可以使用以下命令：
+# 如果需要停止该服务并禁用开机自启，可以使用以下命令：
 sudo systemctl stop logkeys.service
 sudo systemctl disable logkeys.service
 ```
@@ -816,13 +812,13 @@ COMMAND:所执行的指令
 #### 杀死进程
 
 ```shell
-#使用kill命令杀死进程
+# 使用kill命令杀死进程
 kill <PID>
 
-#使用pkill命令杀死进程
+# 使用pkill命令杀死进程
 pkill <进程名>
 
-#使用fuser命令杀死进程
+# 使用fuser命令杀死进程
 fuser -k <路径/文件名>
 ```
 
@@ -832,14 +828,14 @@ fuser -k <路径/文件名>
 # filename.tar.xz
 # -f参数用于指定要解压的文件名。
 tar -xf filename.tar.xz 
-#进入解压目录
+# 进入解压目录
 cd filename
-#安装
+# 安装
 ./configure
 make
 sudo make install
 
-#filename.tar.bz2
+# filename.tar.bz2
 tar -jxvf filename.tar.bz2
 ```
 
@@ -1036,36 +1032,36 @@ ulimit [-SHabcdefiklmnpqrstuvxPT] [限制]
 
 ```shell
 sudo gedit /etc/hosts
-#在文本中添加下面四行
+# 在文本中添加下面四行
 185.199.108.133 raw.githubusercontent.com
 185.199.109.133 raw.githubusercontent.com
 185.199.110.133 raw.githubusercontent.com
 185.199.111.133 raw.githubusercontent.com
-#安装
+# 安装
 sudo apt install curl
 curl -o ~/timer https://raw.githubusercontent.com/rlue/timer/master/bin/timer
 sudo chmod +x ~/timer
 sudo mv timer /usr/bin
-#使用
-#计时器设置为10秒
+# 使用
+# 计时器设置为10秒
 timer -d 10
 
-#计时器设置为10分
+# 计时器设置为10分
 timer 10
 
-#获取帮助
+# 获取帮助
 timer -h
 
-#等待10分
+# 等待10分
 sleep 10m
 
-#等待10秒
+# 等待10秒
 sleep 10s
 
-#等待10小时
+# 等待10小时
 sleep 10h
 
-#等待10天
+# 等待10天
 sleep 10d
 ```
 
@@ -1118,23 +1114,23 @@ sudo dpkg -i zhixilinux.deb
 wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
 chmod +x qt-opensource-linux-x64-5.12.9.run
 sudo ./qt-opensource-linux-x64-5.12.9.run
-#登录不了报错，设置改为无代理
+# 登录不了报错，设置改为无代理
 Warning: Network error: [ QNetworkReply::NetworkError(AuthenticationRequiredError) ] "Authentication failed."
-#建立软连接，终端输入qtcreator即可启动
+# 建立软连接，终端输入qtcreator即可启动
 sudo ln -s /opt/Qt5.12.9/Tools/QtCreator/bin/qtcreator.sh /usr/bin/qtcreator
 ```
 
 ## 字体
 
 ```shell
-#在字体目录刷新字体
+# 在字体目录刷新字体
 sudo fc-cache -f -v
 ```
 
 ```shell
-#安装字体管理程序
+# 安装字体管理程序
 sudo apt-get install font-manager
-#卸载字体管理器
+# 卸载字体管理器
 sudo apt-get remove font-manager
 ```
 
@@ -1143,9 +1139,9 @@ sudo apt-get remove font-manager
 ### tar
 
 ```shell
-#查看file大小
+# 查看file大小
 du -sh file
-#查看当前路径下各个文件的大小
+# 查看当前路径下各个文件的大小
 du -h 
 ```
 
@@ -1222,9 +1218,9 @@ sudo apt -f install
 ### 火狐浏览器
 
 ```shell
-#命令行打开网页
+# 命令行打开网页
 firefox *.html
-#打开网页视频自动静音
+# 打开网页视频自动静音
 火狐设置→隐私和安全→自动播放设置→所有网站的默认值改为允许音频和视频→保存更改
 ```
 
@@ -1234,10 +1230,10 @@ firefox *.html
 
 ```shell
 sudo apt install okular
-#在vscode中配置反向搜索
+# 在vscode中配置反向搜索
 code --goto %f:%l
-#使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
-#在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
+# 使用正向搜索时，让光标停在源码的某处，然后按快捷键 Ctrl+Alt+J 快捷键就能实现正向搜索。
+# 在Okular中，使用反向搜索时要按住 Shift 键同时用鼠标单击PDF文件
 ```
 
 ```json
@@ -1347,17 +1343,17 @@ code --goto %f:%l
 ## 播放器
 
 ```shell
-#默认播放器播放MP4黑屏
-#ubuntu-restricted-extras 是一个包含各种基本软件的软件包
+# 默认播放器播放MP4黑屏
+# ubuntu-restricted-extras 是一个包含各种基本软件的软件包
 sudo apt install ubuntu-restricted-extras
-#使用FFmpeg安装解码器
+# 使用FFmpeg安装解码器
 sudo snap install ffmpeg
 ```
 
 ### rhythmbox
 
 ```shell
-#卸载
+# 卸载
 sudo apt remove --purge rhythmbox
 sudo apt autoremove
 ```
@@ -1365,9 +1361,9 @@ sudo apt autoremove
 ### vlc
 
 ```shell
-#安装
+# 安装
 sudo apt install vlc 
-#卸载
+# 卸载
 sudo apt remove --purge vlc*
 sudo apt autoremove
 ```
@@ -1375,7 +1371,7 @@ sudo apt autoremove
 ### sox
 
 ```shell
-#安装
+# 安装
 sudo apt install sox
 sudo apt install libsox-fmt-all
 ```
@@ -1383,7 +1379,7 @@ sudo apt install libsox-fmt-all
 ### moc
 
 ```shell
-#安装
+# 安装
 sudo apt install moc
 mocp
 
@@ -1401,7 +1397,7 @@ h:快捷键
 ### cmus
 
 ```shell
-#安装
+# 安装
 sudo apt-get install cmus
 cmus
 
@@ -1423,14 +1419,14 @@ c:暂停和播放
 ### mplayer
 
 ```shell
-#安装
+# 安装
 sudo apt install mplayer
 ```
 
 ## 图片
 
 ```shell
-#命令行打开图片
+# 命令行打开图片
 eog /path/to/image.jpg
 ```
 
@@ -1439,10 +1435,10 @@ eog /path/to/image.jpg
 ### kazam
 
 ```shell
-#安装
+# 安装
 sudo apt install kazam
 sudo gedit /etc/gdm3/custom.conf 
-#第7行 #WaylandEnable=false取消注释，保存退出
+# 第7行 #WaylandEnable=false取消注释，保存退出
 sudo systemctl restart gdm3
 ```
 
@@ -1451,11 +1447,11 @@ sudo systemctl restart gdm3
 ### libreoffice
 
 ```shell
-#卸载
+# 卸载
 su root
 apt-get remove --purge libreoffice*
 apt autoremove
-#切回原用户
+# 切回原用户
 exit 或者 Ctrl + D
 ```
 
@@ -1464,7 +1460,7 @@ exit 或者 Ctrl + D
 链接: <https://pan.baidu.com/s/1ctqVC7W0f4I8c_froXi5Ng?pwd=1234> 提取码: 1234
 
 ```shell
-#安装
+# 安装
 sudo dpkg -i wps-office_11.1.0.11711_amd64.deb
 ```
 
@@ -1476,7 +1472,7 @@ sudo dpkg -i wps-office_11.1.0.11711_amd64.deb
 # 在下载目录终端输入
 sudo unzip wps_symbol_fonts.zip -d wps_symbol_fonts
 cd wps_symbol_fonts
-#依次双击每个.ttf文件进行安装
+# 依次双击每个.ttf文件进行安装
 ```
 
 ## 词典
@@ -1486,12 +1482,12 @@ cd wps_symbol_fonts
 链接: <https://pan.baidu.com/s/1RskaJa08QEF0pele3HPc3Q?pwd=1234> 提取码: 1234
 
 ```shell
-#安装npm
+# 安装npm
 tar -xvf node-v6.9.5-linux-x64.tar.xz
 sudo mv node-v6.9.5-linux-x64 /usr/local/node
 sudo ln -s /usr/local/node/bin/node /usr/local/bin/node
 sudo ln -s /usr/local/node/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-#安装有道
+# 安装有道
 sudo apt install npm
 npm install yddict -g
 # 配置
@@ -1503,14 +1499,14 @@ sudo ln -s  /usr/local/node/lib/node_modules/yddict/index.js /usr/local/bin/yd
 链接: <https://pan.baidu.com/s/18dLm2JCsaFIPdEl7lla7jw?pwd=1234> 提取码: 1234
 
 ```shell
-#安装
+# 安装
 sudo dpkg - i eudic.deb
 ```
 
 ### goldendict
 
 ```shell
-#安装
+# 安装
 sudo apt-get install goldendict
 ```
 
@@ -1523,7 +1519,7 @@ sudo apt-get install goldendict
 ### typespeed
 
 ```shell
-#安装
+# 安装
 sudo apt install typespeed
 typespeed
 ```
@@ -1531,7 +1527,7 @@ typespeed
 ### gtypist
 
 ```shell
-#安装
+# 安装
 sudo apt install gtypist
 gtypist
 ```
@@ -1541,20 +1537,20 @@ gtypist
 ### 命令行安装和发送邮件
 
 ```shell
-#安装
+# 安装
 sudo apt install mailutils
 sudo apt install ssmtp
 sudo apt install postfix
-#配置postfix
+# 配置postfix
 sudo dpkg-reconfigure postfix
-#查看安装版本
+# 查看安装版本
 sudo postconf mail_version
 
 
 
-#163邮箱配置
+# 163邮箱配置
 sudo vim /etc/ssmtp/ssmtp.conf
-#修改
+# 修改
 root=1995195@163.com
 mailhub=smtp.163.com:465
 AuthUser=1995195@163.com
@@ -1562,15 +1558,15 @@ AuthPass=APYDOSTDPDUOEEHQ # 这个密码不是邮箱的密码，而是网易邮�
 UseTLS=Yes
 
 sudo vim /etc/ssmtp/revaliases
-#添加
+# 添加
 ubuntu:18586750391@163.com:smtp.163.com:465 //ubuntu为当前用户
-#如果发送邮件失败，tail -f命令查看日志
+# 如果发送邮件失败，tail -f命令查看日志
 echo 'Here is the message body.' | mail -s "Test email from ubuntu server!" 18586750391@163.com 
 tail -f /var/log/mail.err 
 
-#qq邮箱配置
+# qq邮箱配置
 sudo vim /etc/ssmtp/ssmtp.conf
-#修改
+# 修改
 
 root=1432132015@qq.com
 mailhub=smtp.qq.com:465
@@ -1579,17 +1575,17 @@ AuthPass=kkvvgghdyzfwiahh
 UseTLS=Yes
 
 sudo vim /etc/ssmtp/revaliases
-#添加
+# 添加
 ubuntu:1432132015@qq.com:smtp.qq.com:465 //ubuntu为当前用户
-#如果发送邮件失败，tail -f命令查看日志
+# 如果发送邮件失败，tail -f命令查看日志
 echo 'Here is the message body.' | mail -s "Test email from ubuntu server!" 1432132015@qq.com 
 tail -f /var/log/mail.err 
 
-#总结：两个配置
+# 总结：两个配置
 sudo vim /etc/ssmtp/ssmtp.conf
 sudo vim /etc/ssmtp/revaliases
 
-#发送邮件失败
+# 发送邮件失败
 cat /var/log/mail.err
 Dec 30 09:41:47 ubuntu sSMTP[9549]: 553 Mail from must equal authorized user
 ```
